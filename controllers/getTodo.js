@@ -25,7 +25,8 @@ const getTodoById = async (req,res) => {
   try {
     //extract todo item based on id
     const id = req.params.id;
-    const todo = await Todo.findById({ _id: id });
+    // const todo = await Todo.findById({ _id: id });
+    const todo = await Todo.findById(id);
     // data for given id not found
     if (!todo) {
       return res.status(404).json({
@@ -49,5 +50,4 @@ const getTodoById = async (req,res) => {
   }
 };
 
-module.exports = getTodo
-module.exports = getTodoById
+module.exports = {getTodo,getTodoById};
